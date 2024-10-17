@@ -5,19 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora Online</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
 <body>
     <div id="calculadora">
         <div id="visor">
-            <div class="tela" id="resultado"></div> <!--Operação atual-->
-            <div class="tela" id="operacao"></div>  <!--O que está sendo digitado-->
+            <div id="operacao" class="tela" ></div >  <!--O que está sendo digitado-->
+            <div id="resultado" class="tela" ></div > <!--Reultado da operação atual-->
         </div>
         <div id="teclado">
             <input type="button" class="botao teclas"          id="tcl_c"      value="C">
             <input type="button" class="botao teclas"          id="tcl_ac"     value="AC">
             <input type="button" class="botao teclas operacao" id="tcl_por"    value="%">
-            <input type="button" class="botao teclas operacao" id="tcl_input"  value="/">
+            <input type="button" class="botao teclas operacao" id="tcl_div"    value="/">
             <input type="button" class="botao numero"          id="nmr_sete"   value="7">
             <input type="button" class="botao numero"          id="nmr_oito"   value="8">
             <input type="button" class="botao numero"          id="nmr_nove"   value="9">
@@ -37,3 +36,4 @@
     </div>
 </body>
 </html>
+<script src="script.js"></script>

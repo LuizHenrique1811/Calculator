@@ -61,12 +61,16 @@ body{
     padding-right:5px ;
 }
 
-#resultado{
+#operacao{
     height: 20px;
     margin: 5px 25px 0 25px;
+    text-align: left;
+    font-size: 16px;
 }
 
-#operacao{
+#resultado{
     height: 45px;
     margin: 5px 25px 0 25px;
+    text-align: left;
+    font-size: 32px;
 }
