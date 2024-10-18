@@ -9,22 +9,27 @@ body{
 }
 
 #calculadora{
-    background-color: #666666;
+    color: #000000;
+    font-family: Inconsolata, sans-serif;
+    font-weight: 500;
     margin-top: 15vh;
     border-radius: 25px;
+    border: 1px solid #BDBDBD ;
     width: 445px;
     height: 670px;
     display: flex;
     align-items: center;
     flex-direction: column;
+    background-color: #F5F5F5;
 }
 
 #visor{
-    background-color: #e9eaec;
+    color: #000000;
     border-radius:2em;
     width: 396px;
     height:80px;
     margin-top: 40px;
+    background-color: #d3d3d3;
 }
 
 #teclado{
@@ -34,25 +39,29 @@ body{
 }
 
 .botao{
+    color: #000000;
     font-size:45px;
     text-align: center;
     border-radius: 100%;
+    border: 1px solid #BDBDBD;
     margin: 10px;
     width: 75px;
     height: 75px;
-    background-color: #e0e0e0;
+    background-color: #E0E0E0;
 }
 
 .botao:hover{
-    background-color: #acacac;
+    background-color: #BDBDBD;
 }
 
 .operacao{
-    background-color: #f4a460;
+    color: ##FFFFFF;
+    border: 1px solid #EF6C00;
+    background-color: #FF9800;
 }
 
 .operacao:hover{
-    background-color: #e4812b;
+    background-color: #EF6C00;
 }
 
 #nmr_zero{
@@ -65,12 +74,12 @@ body{
     height: 20px;
     margin: 5px 25px 0 25px;
     text-align: left;
-    font-size: 16px;
+    font-size:24px;
 }
 
 #resultado{
     height: 45px;
     margin: 5px 25px 0 25px;
     text-align: left;
-    font-size: 32px;
+    font-size: 48px;
 }
