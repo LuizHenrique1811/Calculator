@@ -5,14 +5,74 @@
 body{
     display: flex;
     text-align:center;
+    aling-items: center;
     justify-content: center;
+}
+
+#darkmode_toogle_lbl{
+    width: 60px;
+    height: 30px;
+    margin: 0 0 15px 0;
+    display: block;
+    background: #ebebeb;
+    position: relative;
+    border-radius:200px;
+    box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
+    right: 0px;
+    transition:0.3s;
+}
+
+#darkmode_toogle_lbl:after{
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(180deg,#FF9800,#EF6C00);
+    border-radius: 180px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+}
+
+#darkmode_toogle_lbl:before{
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(180deg,#FF9800,#EF6C00);
+    border-radius: 180px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+}
+
+#darkmode_toogle{
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+#darkmode_toogle:checked + #darkmode_toogle_lbl{
+    background: #242424;
+}
+
+#darkmode_toogle:checked + #darkmode_toogle_lbl:after{
+    left:35px;
+    transform:transleX(-100%);
+    background: linear-gradient(180deg,#a8a7a7,#8f8c8c);
+}
+
+#darkmode_toogle:checked + #darkmode_toogle_lbl:before{
+    left:28px;
+    transform:transleX(-100%);
+    background: linear-gradient(180deg,#242424,#3a3a3a);
+    z-index:999;
 }
 
 #calculadora{
     color: #000000;
     font-family: Inconsolata, sans-serif;
     font-weight: 500;
-    margin-top: 15vh;
     border-radius: 25px;
     border: 1px solid #BDBDBD ;
     width: 445px;

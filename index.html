@@ -11,31 +11,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Kanit:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="calculadora">
-        <div id="visor">
-            <div id="operacao" class="tela" ></div >  <!--O que está sendo digitado-->
-            <div id="resultado" class="tela" ></div > <!--Reultado da operação atual-->
-        </div>
-        <div id="teclado">
-            <input type="button" class="botao teclas"          id="tcl_c"      value="C">
-            <input type="button" class="botao teclas"          id="tcl_ac"     value="AC">
-            <input type="button" class="botao teclas operacao" id="tcl_por"    value="%">
-            <input type="button" class="botao teclas operacao" id="tcl_div"    value="/">
-            <input type="button" class="botao numero"          id="nmr_sete"   value="7">
-            <input type="button" class="botao numero"          id="nmr_oito"   value="8">
-            <input type="button" class="botao numero"          id="nmr_nove"   value="9">
-            <input type="button" class="botao teclas operacao" id="tcl_mult"   value="x">
-            <input type="button" class="botao numero"          id="nmr_quatro" value="4">
-            <input type="button" class="botao numero"          id="nmr_cinco"  value="5">
-            <input type="button" class="botao numero"          id="nmr_seis"   value="6">
-            <input type="button" class="botao teclas operacao" id="tcl_menos"  value="-">
-            <input type="button" class="botao numero"          id="nmr_um"     value="1">
-            <input type="button" class="botao numero"          id="nmr_dois"   value="2">
-            <input type="button" class="botao numero"          id="nmr_tres"   value="3">
-            <input type="button" class="botao teclas operacao" id="tcl_mais"   value="+">
-            <input type="button" class="botao numero"          id="nmr_zero"   value="0">
-            <input type="button" class="botao numero"          id="tcl_ponto"  value=".">
-            <input type="button" class="botao teclas operacao" id="tcl_igual"  value="=">
+    <div id="content">
+        <input id="darkmode_toogle" type="checkbox">
+        <label id="darkmode_toogle_lbl" for="darkmode_toogle"></label>
+        <div id="calculadora">
+            <div id="visor">
+                <div id="operacao" class="tela" ></div >  <!--O que está sendo digitado-->
+                <div id="resultado" class="tela" ></div > <!--Reultado da operação atual-->
+            </div>
+            <div id="teclado">
+                <input type="button" class="botao teclas"          id="tcl_c"      value="C">
+                <input type="button" class="botao teclas"          id="tcl_ac"     value="AC">
+                <input type="button" class="botao teclas operacao" id="tcl_por"    value="%">
+                <input type="button" class="botao teclas operacao" id="tcl_div"    value="/">
+                <input type="button" class="botao numero"          id="nmr_sete"   value="7">
+                <input type="button" class="botao numero"          id="nmr_oito"   value="8">
+                <input type="button" class="botao numero"          id="nmr_nove"   value="9">
+                <input type="button" class="botao teclas operacao" id="tcl_mult"   value="x">
+                <input type="button" class="botao numero"          id="nmr_quatro" value="4">
+                <input type="button" class="botao numero"          id="nmr_cinco"  value="5">
+                <input type="button" class="botao numero"          id="nmr_seis"   value="6">
+                <input type="button" class="botao teclas operacao" id="tcl_menos"  value="-">
+                <input type="button" class="botao numero"          id="nmr_um"     value="1">
+                <input type="button" class="botao numero"          id="nmr_dois"   value="2">
+                <input type="button" class="botao numero"          id="nmr_tres"   value="3">
+                <input type="button" class="botao teclas operacao" id="tcl_mais"   value="+">
+                <input type="button" class="botao numero"          id="nmr_zero"   value="0">
+                <input type="button" class="botao numero"          id="tcl_ponto"  value=".">
+                <input type="button" class="botao teclas operacao" id="tcl_igual"  value="=">
+            </div>
         </div>
     </div>
 </body>
