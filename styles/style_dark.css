@@ -149,7 +149,7 @@ body{
 }
 
 #resultado{
-    width:340px;
+    width:346px;
     height: 45px;
     margin: 5px 25px 0 25px;
     color:#ffffff;
@@ -157,8 +157,4 @@ body{
     font-size: 48px;
     background:none;
     outline: none;
-}
-
-input[type=number]::-webkit-inner-spin-button{
-    appearance: none;
 }
