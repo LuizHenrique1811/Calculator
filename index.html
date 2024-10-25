@@ -19,7 +19,7 @@
         <div id="calculadora">
             <div id="visor">
                 <div id="operacao" class="tela" ></div >  <!--O que está sendo digitado-->
-                <div id="resultado" class="tela"></div> <!--Reultado da operação atual-->
+                <input id="resultado" class="tela" type="number" onkeyup="f_verifica_numero(this.keyCode)"/>
             </div>
             <div id="teclado">
                 <input type="button" class="botao teclas"          id="tcl_c"      value="C">

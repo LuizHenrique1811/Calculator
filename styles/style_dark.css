@@ -1,5 +1,7 @@
 *{
     border: 0;
+    transition-property:background-color;
+    transition-duration: 0.3s;
 }
 
 body{
@@ -157,4 +159,10 @@ body{
     font-size: 48px;
     background:none;
     outline: none;
+    appearance: none;
+
+}
+
+input[id=resultado]::-webkit-inner-spin-button{
+    appearance: none;
 }

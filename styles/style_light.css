@@ -1,5 +1,7 @@
 *{
     border: 0;
+    transition-property:background-color;
+    transition-duration: 0.3s;
 }
 
 body{
@@ -8,6 +10,7 @@ body{
     justify-content: center;
     background:linear-gradient(to left,#ff9900,#f8cc89,#ffffff);
     margin-top: 5vh;
+    
 }
 
 #switch{
@@ -157,4 +160,8 @@ body{
     font-size: 48px;
     background:none;
     outline: none;
+}
+
+input[id=resultado]::-webkit-inner-spin-button{
+    appearance: none;
 }
