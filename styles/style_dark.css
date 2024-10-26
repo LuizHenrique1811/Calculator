@@ -1,5 +1,7 @@
 *{
     border: 0;
+    transition-property:background-color;
+    transition-duration: 0.3s;
 }
 
 body{
@@ -152,9 +154,14 @@ body{
     width:346px;
     height: 45px;
     margin: 5px 25px 0 25px;
+    padding-bottom: 16px;
     color:#ffffff;
     text-align: left;
     font-size: 48px;
     background:none;
     outline: none;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    scrollbar-color: #1E2021 #3D4245;
 }

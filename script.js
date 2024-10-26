@@ -5,9 +5,23 @@ var toggle = document.querySelector("input[id='darkmode_toogle']");
 var theme = document.querySelector("link[id='theme']");
 var darkMode  = "styles/style_dark.css";
 var lightMode = "styles/style_light.css";
-let addPoint;
+let numbers = [];
 let operacao;
 
+function completed() {
+    document.removeEventListener("DOMContentLoaded", completed);
+    window.removeEventListener("load", completed);
+    ready();
+}
+
+if (document.readyState === "complete" ||(document.readyState !== "loading" && !document.documentElement.doScroll)) {
+    ready(); // está pronto!
+} else { // ainda não está pronto...
+    document.addEventListener("DOMContentLoaded", completed);
+    window.addEventListener("load", completed);
+}
+
+    
 function f_pressiona_igual(){
     if (operacao && output_resultado.innerText){
         // if there was an operation selected it will calculate the result
@@ -35,16 +49,15 @@ function f_pressiona_operacao(vf_input_value){
         }
         output_operacao.innerText = output_resultado.innerText + vf_input_value;  
         output_resultado.innerText = "";
-        addPoint = true;
 
     }
 }
 
 function f_verifica_virgula(){
-    
-    if(output_resultado.innerText.includes(".") == false && addPoint){
-        output_resultado.innerText += ".";
-        addPoint = false;
+    if (output_resultado.innerText){
+        if(output_resultado.innerText.includes(".") == false){
+            output_resultado.innerText += ".";
+        }
     }
 }
 
@@ -58,7 +71,7 @@ function f_verifica_input(input) {
         // Remove the last element from the output_resultado
         output_resultado.innerText = output_resultado.innerText.slice(0, -1);
     }      
-    else if(input.id == "tcl_ponto" && addPoint){
+    else if(input.id == "tcl_ponto"){
         f_verifica_virgula();
     }
     else if(input.id == "tcl_por"){
@@ -77,49 +90,54 @@ function f_verifica_input(input) {
     else{
         // if there was no operation selected it will save the operation
         output_resultado.innerText += input.value;  
-        addPoint = true;
     }
     
 }
 
-document.addEventListener("keydown", function(tecla){
-    
-    if(tecla.key == "/" || tecla.key == "*" || tecla.key == "-" || tecla.key == "+"){
-        f_pressiona_operacao(tecla.key);
-        
-    }
-    else if(tecla.key == "Enter"){
-        f_pressiona_igual();
-    }
-    else if(tecla.key == "Backspace"){
-        output_resultado.innerText = output_resultado.innerText.slice(0, -1);
-    }
-    else if(tecla.key == "c"){
-        output_operacao.innerText = "";
-        output_resultado.innerText = "";
-    }
-    else if(tecla.key == "%"){
-        output_resultado.innerText = output_resultado.innerText / 100
-    }
-    else {
-        if(parseFloat(tecla.key) >= 0 || tecla.key == "," || tecla.key == "."){
-            if (tecla.key == ","){
-                f_verifica_virgula();
-            }else{
-                output_resultado.innerText += tecla.key
-                addPoint = true
-            }
+function ready() {
+    // quando esta função correr o DOM está acessível
+
+    document.addEventListener("keydown", function(tecla){
+        console.log(numbers.indexOf(tecla.key) > -1);
+
+        if (numbers.indexOf(tecla.key) > -1){
+            output_resultado.innerText += tecla.key
         }
-    }
-})
+       else if(tecla.key == "/" || tecla.key == "*" || tecla.key == "-" || tecla.key == "+"){
+            f_pressiona_operacao(tecla.key);
+            
+        }
+        else if(tecla.key == "Enter"){
+            f_pressiona_igual();
+        }
+        else if(tecla.key == "Backspace"){
+            output_resultado.innerText = output_resultado.innerText.slice(0, -1);
+        }
+        else if(tecla.key == "c"){
+            output_operacao.innerText = "";
+            output_resultado.innerText = "";
+        }
+        else if(tecla.key == "%"){
+            output_resultado.innerText = output_resultado.innerText / 100
+        }
+        else if(tecla.key == "," || tecla.key == "."){
+            f_verifica_virgula();
+        }
+    })
+}
+
 
 // Add to each bottom the event listeners to very the bottom clicked 
 botoes.forEach(function(input) {
+    if(input.value >= 0){
+        numbers.push(input.value);
+    }
     input.addEventListener("click", function() {
         f_verifica_input(input);
     });
 
 });
+console.log(numbers);
 
 
 toggle.addEventListener("click", function() {
