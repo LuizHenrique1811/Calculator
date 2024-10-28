@@ -7,6 +7,7 @@ var darkMode  = "styles/style_dark.css";
 var lightMode = "styles/style_light.css";
 let numbers = [];
 let operacao;
+let change;
 
 function completed() {
     document.removeEventListener("DOMContentLoaded", completed);
@@ -29,12 +30,13 @@ function f_pressiona_igual(){
         output_resultado.innerText = eval(output_operacao.innerText + operacao + output_resultado.innerText);
         output_operacao.innerText = "";
         operacao = "";
+        change = false;
     }
 }
 
 function f_pressiona_operacao(vf_input_value){
 
-    if( output_resultado.innerText){
+    if( output_resultado.innerText || change){
 
         if(vf_input_value == "*" || vf_input_value == "x"){
             operacao = "*";
@@ -47,7 +49,12 @@ function f_pressiona_operacao(vf_input_value){
         else{
             operacao = vf_input_value;
         }
-        output_operacao.innerText = output_resultado.innerText + vf_input_value;  
+        if (change){
+            output_operacao.innerText = output_operacao.innerText.slice(0, -1) + vf_input_value;
+        }else{
+            output_operacao.innerText = output_resultado.innerText + vf_input_value;  
+            change = true;
+        }
         output_resultado.innerText = "";
 
     }
@@ -66,6 +73,8 @@ function f_verifica_input(input) {
     if (input.id == "tcl_c") {
         output_operacao.innerText = "";
         output_resultado.innerText = "";
+        change = false;
+        operacao = "";
     }
     else if (input.id == "tcl_ac") {
         // Remove the last element from the output_resultado
@@ -94,18 +103,40 @@ function f_verifica_input(input) {
     
 }
 
+
+// Add to each bottom the event listeners to very the bottom clicked 
+botoes.forEach(function(input) {
+    if(input.value >= 0){
+        numbers.push(input.value);
+    }
+    input.addEventListener("click", function() {
+        f_verifica_input(input);
+    });
+
+});
+
+
+toggle.addEventListener("click", function() {
+    if (toggle.checked){
+        // Dark mode settings
+        theme.setAttribute("href", darkMode);
+    }else{ 
+        // Light mode settings
+        theme.setAttribute("href", lightMode);
+    }
+    
+});
+
 function ready() {
     // quando esta função correr o DOM está acessível
 
     document.addEventListener("keydown", function(tecla){
-        console.log(numbers.indexOf(tecla.key) > -1);
 
         if (numbers.indexOf(tecla.key) > -1){
             output_resultado.innerText += tecla.key
         }
        else if(tecla.key == "/" || tecla.key == "*" || tecla.key == "-" || tecla.key == "+"){
             f_pressiona_operacao(tecla.key);
-            
         }
         else if(tecla.key == "Enter"){
             f_pressiona_igual();
@@ -125,32 +156,3 @@ function ready() {
         }
     })
 }
-
-
-// Add to each bottom the event listeners to very the bottom clicked 
-botoes.forEach(function(input) {
-    if(input.value >= 0){
-        numbers.push(input.value);
-    }
-    input.addEventListener("click", function() {
-        f_verifica_input(input);
-    });
-
-});
-console.log(numbers);
-
-
-toggle.addEventListener("click", function() {
-    if (toggle.checked){
-        // Dark mode settings
-        theme.setAttribute("href", darkMode);
-    }else{ 
-        // Light mode settings
-        theme.setAttribute("href", lightMode);
-
-    }
-
-});
-
-
-
