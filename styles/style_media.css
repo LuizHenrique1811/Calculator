@@ -1,0 +1,58 @@
+@media (max-width: 600px) {
+    body{
+        margin-top: 2vh;
+    }
+    #darkmode_toogle_lbl{
+        width: 30px;
+        height: 15px;
+        margin: 0 0 5px 0;
+    }
+    #darkmode_toogle_lbl:after{
+        top: 2.5px;
+        left: 2.5px;
+        width: 10px;
+        height: 10px;
+        transition:0.3s;
+    }
+    #darkmode_toogle_lbl:before{
+        top: 2.5px;
+        left: 2.5px;
+        width: 10px;
+        height: 10px;
+    }
+    #darkmode_toogle:checked + #darkmode_toogle_lbl:after{
+        left:17px;
+    }
+    #darkmode_toogle:checked + #darkmode_toogle_lbl:before{
+        left:14.3px;
+    }
+    #calculadora{
+        width: 210px;
+        height: 360px;
+    }
+    #visor{
+        width: 200px;
+        height:55px;
+    }
+    #teclado{
+        margin: 5px;
+    }
+    .botao{
+        font-size:15px;
+        margin: 5px;
+        width: 40px;
+        height: 40px;
+    }
+    #nmr_zero{
+        border-radius: 30px;
+        width: 90px;
+        padding-right:5px ;
+    }
+    
+    #resultado{
+        width:220px;
+        height: 35px;
+        margin: 5px 25px 0 25px;
+        font-size: 45px;
+    }
+}
